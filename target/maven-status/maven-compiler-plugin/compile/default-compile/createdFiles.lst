@@ -1,2 +1,4 @@
+com\manahilsher\WebCrawler\UrlService.class
 com\manahilsher\WebCrawler\App.class
+com\manahilsher\WebCrawler\UrlRepository.class
 com\manahilsher\WebCrawler\WebCrawler.class

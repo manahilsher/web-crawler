@@ -18,9 +18,12 @@ public class WebCrawler {
     private Queue<String> urlQueue;
     private List<String> visitedURLs;
 
+    private UrlService urlService;
+
     public WebCrawler() {
         urlQueue = new LinkedList<>();
         visitedURLs = new ArrayList<>();
+        urlService = new UrlService();
     }
 
     public void crawl(String rootURL) {
@@ -45,9 +48,10 @@ public class WebCrawler {
             for (Element foundLink : foundLinks) {
                 String foundURL = foundLink.attr("abs:href");
 
-                if (!visitedURLs.contains(foundURL)) {
+                if (!visitedURLs.contains(foundURL) && urlService.find(foundURL) == null) {
                     visitedURLs.add(foundURL);
                     System.out.println("Website found with URL " + foundURL);
+                    urlService.insert(foundURL);
                     urlQueue.add(foundURL);
 
                     if (urlQueue.size() == MAX_URLs)
