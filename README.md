@@ -12,4 +12,4 @@ DATABASE_NAME=
 
 ### Some errors I gotta keep track of
 
-When running mvn exec:java add this too: `Dexec.cleanupDaemonThreads=false`
+When running mvn exec:java add this too: `-Dexec.cleanupDaemonThreads=false`
